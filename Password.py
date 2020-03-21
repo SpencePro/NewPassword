@@ -4,14 +4,13 @@ guess_count = 0
 guess_limit = 3
 out_of_guesses = False
 
-while True:
-    if guess_count == guess_limit:
-        out_of_guesses = True
-        break
-    if guess != password and not out_of_guesses:
+while guess != password and not out_of_guesses:
+    if guess_count < guess_limit:
         guess = input("Enter your password: ")
+        guess_count += 1
     else:
-        print("Access granted")
-        break
+        out_of_guesses = True
 if out_of_guesses:
     print("You are out of guesses")
+else:
+    print("You win!")
